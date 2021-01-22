@@ -1,11 +1,12 @@
 from django.shortcuts import render, HttpResponse
-
+from .models import Todo
 
 def homepage(request):
     return render(request, "index.htm")
 
 def test(request):
-    return render(request, "test.html")
+    todo_list = Todo.objects.all()
+    return render(request, "test.html", {"todo_list": todo_list})
 
 def go(request):
     return render(request, "go.htm")

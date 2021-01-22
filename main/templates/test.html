@@ -9,7 +9,13 @@
 <body>
     <h2>Это тестовая страница</h2>
     <p>Версия 2</p>
-    
+    {{ todo_list }}<br>
+
+    <!-- Шаблонизатор jinja позволяет писать код Django на странице HTML -->
+    {% for todo in todo_list %}
+        <h3>{{ todo.text }}</h3> - {{ todo.created_at }} - {{ todo.is_closed }} - {{ todo.is_favorite }}
+
+    {% endfor %}
 
 </body>
 </html>
