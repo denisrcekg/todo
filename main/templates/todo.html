@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru-ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-LIST</title>
+    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <!-- <link rel="stylesheet" href="./styles/checkbox.css"> -->
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
+</head>
+
+<body>
+    <h2>Todo list</h2>
+    <!-- {{ todo_list }}<br> -->
+
+    <!-- Шаблонизатор jinja позволяет писать код Django на странице HTML -->
+    <!-- {% for todo in todo_list %}
+    <h3>{{ todo.text }}</h3> - {{ todo.created_at }} - {{ todo.is_closed }} - {{ todo.is_favorite }}
+
+    {% endfor %} -->
+    <section>
+        <div class="create_container">
+            <form class="create_input" type="text" action="{% url 'add-todo' %}" method="POST"></form>
+            <button class="create_button">Добавить</button>
+            <!-- <input class="search_input" type="text">
+            <button class="create_button">Найти</button> -->
+        </div>
+
+        <div class="todo_container">
+            {% for todo in todo_list %}
+            <div class="todo_item
+            {% if todo.is_favorite %}
+                    marked
+                {% elif todo.is_closed %}
+                    done
+                {% endif %}
+            ">
+                <div class="todo_item_header">
+                    <label class="container">
+                        <input type="checkbox" 
+                            {% if todo.is_closed %}
+                                checked
+                            {% endif %}
+                        />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4><a href="{% url 'close-todo' todo.id %}">{{ todo.text }}</a></h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>{{ todo.created_at }}</p>
+                    <!-- <img src="./icons/star_y.png" />
+                        <img src="./icons/bin.png" /> -->
+                    <div class="action_buttons">
+                        {% if todo.is_favorite %}
+                        <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_y.png' %}" /></a>
+                        {% else %}
+                        <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_t.png' %}" /></a>
+                        {% endif %}
+
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}" /></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+</html>

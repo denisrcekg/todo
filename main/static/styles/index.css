@@ -8,11 +8,11 @@
     cursor: default;
 }
 
-input[type=text]:focus {
+form[type=text]:focus {
     width: 40%;
 }
 
-input {
+form {
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     color: white;
     background-color: #0000d646;
@@ -32,7 +32,7 @@ input {
     transition-duration: 0.3s;
 }
 
-.search_input{
+/* .search_input{
     width: 20%;
     border: 2px solid #ccc;
     background-image: url('../icons/search.png');
@@ -41,7 +41,7 @@ input {
     padding: 12px 200px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.3s ease-in-out;
-}
+} */
 
 /* body {
     position: relative;
@@ -109,7 +109,7 @@ section {
     text-align: right;
 }
 
-.todo_item_done {
+.todo_item.done {
     border: 1px solid gray;
     border-radius: 5px;
     width: 24%;
