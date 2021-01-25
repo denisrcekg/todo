@@ -1,3 +1,9 @@
 __pycache__
 db.sqlite3
 .venv
+db.sqlite3_OLD
+main/migrations/0001_initial.py_OLD
+main/migrations/0002_auto_20210114_2047.py_OLD
+main/static/styles/checkbox.css_old
+main/static/styles/index_old.css
+main/templates/todo_trash.htm

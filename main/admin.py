@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Todo
-from .models import Bookstore
+from .models import ToDo, Book
 
 
-# Register your models here.
-admin.site.register(Todo)
-admin.site.register(Bookstore)
+admin.site.register(ToDo)
+admin.site.register(Book)

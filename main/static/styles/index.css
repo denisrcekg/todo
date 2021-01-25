@@ -1,59 +1,13 @@
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #222;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    animation: 1s;
-    cursor: default;
+    color: #263238;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+    
 }
 
-form[type=text]:focus {
-    width: 40%;
-}
-
-form {
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-    color: white;
-    background-color: #0000d646;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 18px;
-    background-position: 10px 10px;
-    border: 2px solid #05b;
-}
-
-.create_input{
-    width: 20%;
-    background-image: url('../icons/add.png');
-    background-repeat: no-repeat;
-    padding: 12px 200px 12px 40px;
-    transition: width ease-in-out;
-    transition-duration: 0.3s;
-}
-
-/* .search_input{
-    width: 20%;
-    border: 2px solid #ccc;
-    background-image: url('../icons/search.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 200px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.3s ease-in-out;
-} */
-
-/* body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-  } */
-
-section {
+section{
     width: 100%;
     padding: 20px;
     display: flex;
@@ -61,9 +15,14 @@ section {
     align-items: center;
 }
 
-.create_container {
-    width: 90%;
-    padding-bottom: 25px;
+.create_container{
+    width: 80%;
+}
+
+.create_input{
+    padding: 12px 55px;
+    font-size: 18px;
+    width: 60%;
 }
 
 .create_button {
@@ -87,80 +46,86 @@ section {
     top: 1px;
 }
 
-.todo_container {
+.todo_container{
     padding: 30px 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    box-shadow: 10px 10px 50px grey;
-    border: 2px solid #777;
-    border-radius: 5px;
 }
 
-.todo_item {
+.todo_item{
     border: 1px solid gray;
     border-radius: 5px;
     width: 24%;
     padding: 10px 15px;
-    background-color: #eec;
-    margin-bottom: 20px;
-    margin-top: 25px;
-    text-align: right;
+    background-color: #C8E6C9;
+    margin-bottom: 20px
 }
 
-.todo_item.done {
-    border: 1px solid gray;
-    border-radius: 5px;
-    width: 24%;
-    padding: 10px 15px;
-    background-color: #bebebe;
-    margin-bottom: 20px;
-    margin-top: 25px;
-    text-decoration-line: line-through;
-    text-align: right;
+.todo_item.done{
+    background-color: #E0E0E0;
+    text-decoration: line-through;
+    color: #757575;
 }
 
-.todo_item.done h4, .todo_item.done p, .todo_item.done span {
-    color: #777;
+.todo_item.done h4, .todo_item.done p, .todo_item.done span{
+    color: #757575;
 }
 
-.todo_item.done img {
+.todo_item.done img{
     opacity: 0.5;
 }
 
-.todo_item_marked {
-    background-color: #fe8;
-    border: 2px solid #fd6;
-    border-radius: 5px;
-    width: 24%;
-    padding: 10px 15px;
-    background-color: #eec;
-    margin-bottom: 20px;
-    margin-top: 25px;
+.todo_item.marked{
+    background-color: #FFE082;
+    border: 1px solid #fad66a
 }
 
-.todo_item_header {
+.todo_item_header{
     display: flex;
     align-items: center;
     min-height: 35px;
 }
 
-.todo_item_header h4 {
-    font-size: 25px;
+.todo_item_header h4{
+    font-size: 18px;
+
 }
 
-.todo_item_footer {
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
+.todo_item_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo_item_footer p{
     font-size: 15px;
+    font-family: sans-serif;
 }
 
-.todo_item_footer .action_buttons {
+.todo_item_footer .action_buttons{
     display: flex;
 }
 
-.todo_item_footer img {
+.todo_item_footer img{
     width: 25px;
     height: 25px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+a:link, :visited{
+    text-decoration: none;
+    color: #40a;
+}
+
+a:hover{
+    text-decoration: underline;
+    text-decoration-style: double;
+    color: #e22b43;
+    text-decoration-skip-ink: all;
 }

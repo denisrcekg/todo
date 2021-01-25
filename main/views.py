@@ -1,50 +1,67 @@
-from django.shortcuts import render, HttpResponse
-from .models import Todo
-from .models import Bookstore
+from django.shortcuts import render, HttpResponse, redirect
+from .models import ToDo, Book
+
 
 def homepage(request):
-    return render(request, "index.htm")
+    return render(request, "index.html")
 
-def todo(request):
-    todo_list = Todo.objects.all()
-    return render(request, "todo.html", {"todo_list": todo_list})
 
-def go(request):
-    return render(request, "go.htm")
+def test(request):
+    todo_list = ToDo.objects.all()
+    return render(request, "test.html", {"todo_list": todo_list})
+
 
 def second(request):
     return HttpResponse("test 2 page")
 
+
 def add_todo(request):
     form = request.POST
     text = form["todo_text"]
-    todo = Todo(text=text)
+    todo = ToDo(text=text)
     todo.save()
-    return redirect(todo)
+    return redirect(test)
 
 
 def delete_todo(request, id):
-    todo = Todo.objects.get(id=id)
+    todo = ToDo.objects.get(id=id)
     todo.delete()
-    return redirect(todo)
+    return redirect(test)
 
 
 def mark_todo(request, id):
-    todo = Todo.objects.get(id=id)
-    todo.is_favorite = True
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = not todo.is_favorite
     todo.save()
-    return redirect(todo)
+    return redirect(test)
 
 
 def close_todo(request, id):
-    todo = Todo.objects.get(id=id)
+    todo = ToDo.objects.get(id=id)
     todo.is_closed = not todo.is_closed
     todo.save()
-    return redirect(todo)
+    return redirect(test)
 
-def third(request):
-    return HttpResponse("This is page test3" )
+def todo(request, id):
+    todo_object = ToDo.objects.get(id=id)
+    return render(request, "todo_item.html", {"todo_object": todo_object})
 
-def bookstore(request):
-    books_list = Bookstore.objects.all()
-    return render(request, "bookstore.htm", {"books_list": books_list})
+def books(request):
+    books = Book.objects.all()
+    return render(request, "bookstore.htm", {"books": books})
+
+def add_book(request):
+    form = request.POST
+    book = Book(
+        title=form["title"],
+        subtitle=form["subtitle"],
+        description=form["description"],
+        price=form["price"],
+        genre=form["genre"],
+        author=form["author"],
+        year=form["date"][:10]
+    )
+
+    book.save()
+
+    return redirect(books)
