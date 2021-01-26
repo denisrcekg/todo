@@ -77,11 +77,11 @@ section{
     opacity: 0.5;
 }
 
-.todo_item.marked{
+.todo_item.marked {
     background-color: #FFE082;
     border: 1px solid #fad66a
-}
 
+}
 .todo_item_header{
     display: flex;
     align-items: center;
@@ -125,7 +125,6 @@ a:link, :visited{
 
 a:hover{
     text-decoration: underline;
-    text-decoration-style: double;
     color: #e22b43;
     text-decoration-skip-ink: all;
 }

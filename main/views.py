@@ -32,6 +32,7 @@ def delete_todo(request, id):
 def mark_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.is_favorite = not todo.is_favorite
+    todo.is_closed = False
     todo.save()
     return redirect(test)
 
@@ -39,6 +40,7 @@ def mark_todo(request, id):
 def close_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.is_closed = not todo.is_closed
+    todo.is_favorite = False
     todo.save()
     return redirect(test)
 
