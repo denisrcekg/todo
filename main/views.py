@@ -65,3 +65,9 @@ def add_book(request):
     book.save()
 
     return redirect(books)
+
+def mark_book(request, id):
+    books = Book.objects.get(id=id)
+    books.is_favorite = not todo.is_favorite
+    books.save()
+    return redirect(test)

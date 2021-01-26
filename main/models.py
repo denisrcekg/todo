@@ -17,3 +17,5 @@ class Book(models.Model):
     year = models.DateField()
     date = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField(default=0)
+    # HW 34
+    is_favorite = models.BooleanField(default=False)
