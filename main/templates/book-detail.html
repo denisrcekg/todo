@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <br>
+    <p>Название: {{ book.title }}</p>
+    <p>Подзаголовок: {{ book.subtitle }}</p>
+    <p>Описание: {{ book.description }}</p>
+    <p>Цена: {{ book.price }}</p>
+    <p>Жанр: {{ book.genre }}</p>
+    <p>Автор: {{ book.author }}</p>
+    <p>Год выхода книги: {{ book.year }}</p>
+    <p>Добавление книги на сайт: {{ book.date }}</p>
+    <a href="{% url 'bookstore' %}" class="btn btn-outline-primary">Назад</a>
+{% endblock %}

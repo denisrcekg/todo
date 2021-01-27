@@ -22,9 +22,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
-    path("test/", test, name="test"),
-    path("todo/", ToDo, name="todo"),
+    path('todo/', test, name='test'),
     path("test2/", second),
+    #todo
+    path("todo/", ToDo, name="todo"),
+
     path("add-todo/", add_todo, name="add-todo"),
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
@@ -32,7 +34,12 @@ urlpatterns = [
     path("todo/<id>", todo, name="todo"),
     
     #bookstore
-    path("bookstore/", books, name="bookstore"),
-    path("add-book", add_book, name="add-book"),
+    # path('bookstore/', bookstore, name='bookstore'),
+    path('book-store/', bookStore, name='bookstore'),
+    path('book-add/', book_add, name='book-add'),
+    path('add-book', add_book, name='book-add-on-the-site'),
+    path('delete-book/<id>/', delete_book, name='delete-book'),
+    path('favorite-book/<id>/', favorite_book, name='favorite-book'),
+    path('book-info/<id>/', book_info, name='info-book'),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,6 @@
 __pycache__
+.gitignore
+gitignore
 db.sqlite3
 .venv
 db.sqlite3_OLD
@@ -7,3 +9,7 @@ main/migrations/0002_auto_20210114_2047.py_OLD
 main/static/styles/checkbox.css_old
 main/static/styles/index_old.css
 main/templates/todo_trash.htm
+todo-jantai.zip
+todo-jantai/
+todo_not_solved.gif
+todo_solved.gif

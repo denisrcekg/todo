@@ -1,13 +1,17 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: #263238;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-section{
+body {
+    padding: 25px 25px 25px 25px;
+    background-color: lightslategray;
+}
+
+section {
     width: 100%;
     padding: 20px;
     display: flex;
@@ -15,11 +19,11 @@ section{
     align-items: center;
 }
 
-.create_container{
+.create_container {
     width: 80%;
 }
 
-.create_input{
+.create_input {
     padding: 12px 55px;
     font-size: 18px;
     width: 60%;
@@ -46,7 +50,7 @@ section{
     top: 1px;
 }
 
-.todo_container{
+.todo_container {
     padding: 30px 20px;
     display: flex;
     justify-content: space-around;
@@ -54,7 +58,7 @@ section{
     width: 100%;
 }
 
-.todo_item{
+.todo_item {
     border: 1px solid gray;
     border-radius: 5px;
     width: 24%;
@@ -63,68 +67,114 @@ section{
     margin-bottom: 20px
 }
 
-.todo_item.done{
+.todo_item.done {
     background-color: #E0E0E0;
     text-decoration: line-through;
     color: #757575;
 }
 
-.todo_item.done h4, .todo_item.done p, .todo_item.done span{
+.todo_item.done h4, .todo_item.done p, .todo_item.done span {
     color: #757575;
 }
 
-.todo_item.done img{
+.todo_item.done img {
     opacity: 0.5;
 }
 
 .todo_item.marked {
     background-color: #FFE082;
     border: 1px solid #fad66a
-
 }
-.todo_item_header{
+
+.todo_item_header {
     display: flex;
     align-items: center;
     min-height: 35px;
 }
 
-.todo_item_header h4{
+.todo_item_header h4 {
     font-size: 18px;
-
 }
 
-.todo_item_header h4 a{
+.todo_item_header h4 a {
     text-decoration: none;
 }
 
-.todo_item_footer{
+.todo_item_footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.todo_item_footer p{
+
+.todo_item_footer p {
     font-size: 15px;
     font-family: sans-serif;
 }
 
-.todo_item_footer .action_buttons{
+.todo_item_footer .action_buttons {
     display: flex;
 }
 
-.todo_item_footer img{
+.todo_item_footer img {
     width: 25px;
     height: 25px;
     margin: 0 5px;
     cursor: pointer;
 }
 
-a:link, :visited{
+a:link, :visited {
     text-decoration: none;
     color: #40a;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
     color: #e22b43;
     text-decoration-skip-ink: all;
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: rgb(245, 245, 245);
+    text-shadow: 0 -1px rgba(0, 0, 0, .1);
+    text-decoration: none;
+    user-select: none;
+    padding: .3em 1em;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+    box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0, 0, 0, .3) 0 2px 5px;
+    -webkit-animation: pulsate 1.2s linear infinite;
+    animation: pulsate 1.2s linear infinite;
+}
+
+.btn.b4:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.btn.b4:active {
+    top: 1px;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, .3), 0 1px 1px #fff, inset 0 1px 2px rgba(0, 0, 0, .8), inset 0 -1px 0 rgba(0, 0, 0, .05);
+}
+
+@-webkit-keyframes pulsate {
+    50% {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    }
+}
+
+@keyframes pulsate {
+    50% {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    }
 }

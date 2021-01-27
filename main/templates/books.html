@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Bookstore</h1>
+<br>
+<p><a href="{% url 'book-add' %}"><button class="create_button"> Добавить книгу</button></a>
+    {% for book in book_list %}
+    <hr>
+<div class="todo_container">
+    <div class="
+            {% if book.is_favorite%}
+                text-success border border-warning
+            {% else %}
+                
+            {% endif %}
+            ">
+        <p>Название: {{ book.title }}</p>
+        <p>Подзаголовок: {{ book.subtitle }}</p>
+        <p>Описание: {{ book.description }}</p>
+        <a href="{% url 'delete-book' book.id %}" class="btn" class="b4">Удалить</a>
+        <a href="{% url 'favorite-book' book.id %}" class="btn_fav">Избранное</a>
+        <a href="{% url 'info-book' book.id %}" class="btn_desc">Посмотреть детали книги</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

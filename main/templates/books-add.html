@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form method="POST" action="{% url 'book-add-on-the-site'%}">
+        {% csrf_token %}
+        <div class="mb-3">
+        <br>
+        <label class="form">Название книги</label>
+        <input type="text" class="form-control" placeholder='Название книги' name="book-title">
+        </div>
+        <div class="mb-3">
+            <label class="form">Подзаголовок книги</label>
+            <input type="text" class="form-control" placeholder='Подзаголовок книги' name="book-subtitle">
+        </div>
+        <div class="mb-3">
+            <label class="form">Описание</label>
+            <input type="text" class="form-control" placeholder='Описание книги' name="book-description">
+        </div>
+        <div class="mb-3">
+            <label class="form">Цена</label>
+            <input type="number" class="form-control" placeholder='Цена' name="book-price">
+        </div>
+        <div class="mb-3">
+            <label class="form">Жанр</label>
+            <input type="text" class="form-control" placeholder='Жанр' name="book-genre">
+        </div>
+        <div class="mb-3">
+            <label class="form">Автор</label>
+            <input type="text" class="form-control" placeholder='Автор книги' name="book-author">
+        </div>
+        <div class="mb-3">
+            <label class="form">Год издательства</label>
+            <input type="date" class="form-control" placeholder='Год издательства' name="book-year">
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import ToDo, Book
+from .models import *
 
 
 def homepage(request):
@@ -8,7 +8,7 @@ def homepage(request):
 
 def test(request):
     todo_list = ToDo.objects.all()
-    return render(request, "test.html", {"todo_list": todo_list})
+    return render(request, "todo.html", {"todo_list": todo_list})
 
 
 def second(request):
@@ -48,28 +48,44 @@ def todo(request, id):
     todo_object = ToDo.objects.get(id=id)
     return render(request, "todo_item.html", {"todo_object": todo_object})
 
-def books(request):
-    books = Book.objects.all()
-    return render(request, "bookstore.htm", {"books": books})
+def bookStore(request):
+    book_list = BookStore.objects.all()
+    return render(request, 'books.html', {"book_list": book_list})
+
+def book_add(request):
+    return render(request, 'books-add.html')
 
 def add_book(request):
     form = request.POST
-    book = Book(
-        title=form["title"],
-        subtitle=form["subtitle"],
-        description=form["description"],
-        price=form["price"],
-        genre=form["genre"],
-        author=form["author"],
-        year=form["date"][:10]
-    )
+    bookstor = BookStore(
+        title=form['book-title'],
+        subtitle=form['book-subtitle'],
+        description=form['book-description'],
+        price=form['book-price'],
+        genre=form['book-genre'],
+        author=form['book-author'],
+        year=form['book-year'])
+    bookstor.save()
 
+    return redirect(bookStore)
+
+def delete_book(request, id):
+    book = BookStore.objects.get(id=id)
+    book.delete()
+
+    return redirect(bookStore)
+
+
+def favorite_book(request, id):
+    book = BookStore.objects.get(id=id)
+    if book.is_favorite:
+        book.is_favorite = False
+    else:
+        book.is_favorite = True
     book.save()
+    return redirect(bookStore)
 
-    return redirect(books)
 
-def mark_book(request, id):
-    books = Book.objects.get(id=id)
-    books.is_favorite = not todo.is_favorite
-    books.save()
-    return redirect(test)
+def book_info(request, id):
+    book = BookStore.objects.get(id=id)
+    return render(request, 'book-detail.html', {'book': book})

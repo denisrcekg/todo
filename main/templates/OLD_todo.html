@@ -1,44 +1,46 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru-ru">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo</title>
-    <!-- <link rel="stylesheet" href="./styles/index.css" /> -->
-    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-LIST</title>
+    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
     <!-- <link rel="stylesheet" href="./styles/checkbox.css"> -->
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body><h1>Todo</h1>
+
+<body>
+    <h2>Todo list</h2>
     <section>
         <div class="create_container">
-            
-          <form action="{% url 'add-todo' %}" method="POST">
-            {% csrf_token %}
-            <a href="javascript:history.back"><i class="fa fa-arrow-left"></i></a>
+            <form action="{% url 'add-todo' %}" method="POST">
+                {% csrf_token %}
             <input
-                class="create_input"
-                type="text"
-                placeholder="Напишите сюда новую задачу"
-                name="todo_text"
-            /><button class="create_button">Добавить</button>
-          </form>
+            class="create_input"
+            type="text"
+            placeholder="Напишите сюда новую задачу"
+            name="todo_text"
+            />
+            <button class="create_button">Добавить</button>
+            </form>
+            <!-- <input class="search_input" type="text">
+            <button class="create_button">Найти</button> -->
         </div>
-        <div class="todo_container">
 
-            {% for todo in todo_list %} 
+        <div class="todo_container">
+            {% for todo in todo_list %}
             <div class="todo_item
-                {% if todo.is_favorite %}
+            {% if todo.is_favorite %}
                     marked
                 {% elif todo.is_closed %}
                     done
                 {% endif %}
-            
-                ">
+            ">
                 <div class="todo_item_header">
-                    <label class="checkbox_container">
+                    <label class="container">
                         <input type="checkbox" 
                             {% if todo.is_closed %}
                                 checked
@@ -50,19 +52,23 @@
                 </div>
                 <div class="todo_item_footer">
                     <p>{{ todo.created_at }}</p>
+                    <!-- <img src="./icons/star_y.png" />
+                        <img src="./icons/bin.png" /> -->
                     <div class="action_buttons">
                         {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_y.png' %}" /></a>
+                        <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_y.png' %}" /></a>
                         {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_t.png' %}" /></a>
+                        <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star_t.png' %}" /></a>
                         {% endif %}
-                        
+
                         <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/bin.png' %}" /></a>
                         <a href="{% url 'todo' todo.id %}">***</a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
-      </section>
+    </section>
+</body>
+
 </html>
